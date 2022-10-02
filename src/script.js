@@ -60,8 +60,8 @@ const tick = () => {
     // Time
     const elapsedTime = clock.getElapsedTime()
     // Update object
-    mesh.rotation.y = elapsedTime
-    mesh.scale.y = elapsedTime
+    mesh.position.y = Math.sin(elapsedTime)
+    mesh.scale.x = Math.sin(elapsedTime)
 
     // Update render
     render.render(scene, camera)
