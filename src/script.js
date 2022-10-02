@@ -52,13 +52,16 @@ scene.add(axesHelper)
 
 render.setSize(size.width, size.height)
 
+// Clock
+const clock = new THREE.Clock()
 
 // Animation
-
 const tick = () => {
+    // Time
+    const elapsedTime = clock.getElapsedTime()
     // Update object
-    mesh.rotation.y += 0.03
-    mesh.scale.y += 0.01
+    mesh.rotation.y = elapsedTime
+    mesh.scale.y = elapsedTime
 
     // Update render
     render.render(scene, camera)
