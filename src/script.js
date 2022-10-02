@@ -51,4 +51,14 @@ const axesHelper = new THREE.AxesHelper(3)
 scene.add(axesHelper)
 
 render.setSize(size.width, size.height)
-render.render(scene, camera)
+
+
+// Animation
+
+const tick = () => {
+    render.render(scene, camera)
+    mesh.rotation.y += 0.03
+    requestAnimationFrame(tick)
+}
+
+tick()
