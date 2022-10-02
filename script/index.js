@@ -1,3 +1,8 @@
+const size = {
+    width: 800,
+    height: 600
+}
+
 // Scene
 const scene = new THREE.Scene()
 
@@ -10,17 +15,12 @@ const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 
 // Camera
-const size = {
-    width: 800,
-    height: 600
-}
 const camera = new THREE.PerspectiveCamera(75, size.width / size.height)
 camera.position.z = 3
 scene.add(camera)
 
 // Render
 const canvas = document.getElementById('canvas')
-console.log(canvas)
 const render = new THREE.WebGLRenderer({
     canvas
 })
