@@ -1,6 +1,7 @@
 import './style.css'
 
 import * as THREE from 'three'
+import gsap from 'gsap'
 
 const size = {
     width: 800,
@@ -54,6 +55,10 @@ render.setSize(size.width, size.height)
 
 // Clock
 const clock = new THREE.Clock()
+
+// GSAP animation
+gsap.to(mesh.position, {duration: 2, delay: 0.3, x: 5})
+gsap.to(mesh.position, {duration: 2, delay: 1, x: 0})
 
 // Animation
 const tick = () => {
