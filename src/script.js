@@ -56,8 +56,13 @@ render.setSize(size.width, size.height)
 // Animation
 
 const tick = () => {
-    render.render(scene, camera)
+    // Update object
     mesh.rotation.y += 0.03
+    mesh.scale.y += 0.01
+
+    // Update render
+    render.render(scene, camera)
+
     requestAnimationFrame(tick)
 }
 
