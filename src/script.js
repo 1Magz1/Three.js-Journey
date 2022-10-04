@@ -5,8 +5,8 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 // import gsap from 'gsap'
 
 const size = {
-    width: 800,
-    height: 600
+    width: window.innerWidth,
+    height: window.innerHeight
 }
 
 // Cursor
@@ -57,6 +57,8 @@ const canvas = document.querySelector('#canvas')
 const render = new THREE.WebGLRenderer({
     canvas
 })
+render.setSize(size.width, size.height)
+render.setPixelRatio(Math.min(window.devicePixelRatio,2))
 
 // Axes Helper
 const axesHelper = new THREE.AxesHelper(3)
@@ -92,4 +94,17 @@ const tick = () => {
     requestAnimationFrame(tick)
 }
 
+window.addEventListener('resize', () => {
+    // Update screen size
+    size.width = window.innerWidth
+    size.height = window.innerHeight
+
+    // Update camera params
+    camera.aspect = size.width / size.height
+    camera.updateProjectionMatrix()
+
+    // Update render size and pixel ration
+    render.setSize(size.width, size.height)
+    render.setPixelRatio(Math.min(window.devicePixelRatio,2))
+})
 tick()
