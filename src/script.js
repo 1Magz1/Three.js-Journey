@@ -74,7 +74,6 @@ const clock = new THREE.Clock()
 // Orbital Controls
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
-controls.update()
 
 // Animation
 const tick = () => {
@@ -83,6 +82,9 @@ const tick = () => {
     // Update object
     // mesh.position.y = Math.sin(elapsedTime)
     // mesh.scale.x = Math.sin(elapsedTime)
+
+    // Update controls
+    controls.update()
 
     // Update render
     render.render(scene, camera)
